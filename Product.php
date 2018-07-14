@@ -10,6 +10,12 @@ class Product {
 	private $_desc;
 	private $_picture;
 
+	/**
+	* description
+	*
+	* $id is set as null in case you want to create a new Product but you don't have to set
+	*	any id number. However you need to get $id for searching product's informations.
+	**/
 
 	public function __construct(string $name, float $price, string $desc, string $picture, $id = null){
 		$this->_name = $name;
@@ -19,12 +25,10 @@ class Product {
 		$this->_id = $id;
 	}
 
-	// Get Id
 	public function getId(){
 		return $this->_id;
 	}
 
-	// Get / Set Libellé
 	public function setName(string $name){
 		$this->_name = $name;
 	}
@@ -33,7 +37,6 @@ class Product {
 		return $this->_name;
 	}
 
-	// Get / Set Prix
 	public function setPrice(float $price){
 		$this->_price=$price;
 	}
@@ -42,7 +45,6 @@ class Product {
 		return $this->_price;
 	}
 
-	// Get / Set Description
 	public function setDesc(string $desc){
 		$this->_desc = $desc;
 	}
@@ -51,7 +53,6 @@ class Product {
 		return $this->_desc;
 	}
 
-	// Get / Set Picture
 	public function setPicture(string $picture){
 		$this->_picture = $picture;
 	}
@@ -60,6 +61,10 @@ class Product {
 		return $this->_picture;
 	}
 
+	/**
+	* If the id is null (product created from zero), save this instance
+	* otherwise, update it.
+	**/
 	public function save(){
 		if (is_null($this->_id)){
 			getDb()->insert('product', [
@@ -78,12 +83,18 @@ class Product {
 
 	}
 
+	/**
+	* description
+	*
+	* @param id : id of the product selected
+	*	@return Product
+	**/
 	public static function find(int $id): Product {
 		$product = getDb()->select('product', '*', ['idProduct' => $id])[0];
 		return new Product($product['nameProduct'], floatval($product['priceProduct']), $product['descProduct'], $product['pictureProduct'], $product['idProduct']);
 	}
 
-	/*
+	/**
 	* @return Product[]
 	**/
 	public static function getAll() {
@@ -93,13 +104,5 @@ class Product {
 			$products[]=new Product($produit['nameProduct'], $produit['priceProduct'], $produit['descProduct'], $produit['pictureProduct'], $produit['idProduct']);
 		}
 		return $products;
-	}
-
-	// test
-	public function doSomething(){
-		$product = new Product("Nom", 50, "description", "pic.png");
-		$product->save();
-		$product->setPrice(100);
-		$product->save();
 	}
 }

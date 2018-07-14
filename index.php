@@ -20,7 +20,6 @@ require 'Product.php';
 		<div class="row">
 		
 		<?php
-		$counter = 0;
 		$productList = Product::getAll();
 		foreach ($productList as $product):
 		?>
