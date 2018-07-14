@@ -38,8 +38,14 @@ body{
 .p-details{
 	margin-top: 70px;
 }
+.btn-details{
+	margin-top: 50px;
+}
 .details-title{
 	margin-top: 20px;
+}
+.hidden-alert{
+	display: none;
 }
 
 footer{

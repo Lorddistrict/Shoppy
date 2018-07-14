@@ -14,7 +14,7 @@ $product = Product::find($_GET['product']);
 <body>
 	<div class="header">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-info">
-			<a class="navbar-brand" href="#">Shoppy</a>
+			<a class="navbar-brand" href="index.php">Shoppy</a>
 		</nav>
 	</div>
 	<div class="container">

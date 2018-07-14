@@ -78,11 +78,9 @@ class Product {
 
 	}
 
-	// Mais c'est un mélange entre ton truc lenaic et Medoo non ?
-
 	public static function find(int $id): Product {
 		$product = getDb()->select('product', '*', ['idProduct' => $id])[0];
-		return new Product($product['nameProduct'], floatval($product['priceProduct']), $product['descProduct'], $product['pictureProduct']);
+		return new Product($product['nameProduct'], floatval($product['priceProduct']), $product['descProduct'], $product['pictureProduct'], $product['idProduct']);
 	}
 
 	/*
