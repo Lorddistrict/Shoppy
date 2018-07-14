@@ -1,0 +1,59 @@
+html, body{
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+body{
+	width: 100%;
+	background-image: url("/Shoppy/assets/img/background.jpg");
+}
+.container{
+	background-color: white;
+}
+
+
+.product-container{
+	margin: 20px;
+	margin-left: 60px;
+	border: black 1px solid;
+}
+.product-title{
+	margin: 10px;
+	text-align: center;
+}
+.product-pic{
+	width: 252px;
+	height: auto;
+}
+.product-links:hover{
+	text-decoration: none;
+}
+.product-title-link{
+	color: red;
+}
+.product-title-link:hover{
+	text-decoration: none;
+	color: darkred;
+}
+.p-details{
+	margin-top: 70px;
+}
+.details-title{
+	margin-top: 20px;
+}
+
+footer{
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}
+.page-footer{
+	background-color: #17A2B8;
+}
+.footer-link{
+	text-decoration: none;
+	color: white;
+}
+.footer-link:hover{
+	text-decoration: none;
+}
