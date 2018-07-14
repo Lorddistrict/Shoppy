@@ -42,7 +42,7 @@ $product = Product::find($_GET['product']);
 						<div class="form-group">
 							<label for="price">Prix : </label>
 							<div class="input-group">
-								<input class="form-control" type="text" id="price" name="price" value="<?= $product->getPrice() ?>" required>
+								<input class="form-control" type="number" id="price" name="price" value="<?= $product->getPrice() ?>" required>
 								<div class="input-group-append">
 									<span class="input-group-text">€</span>
 								</div>
