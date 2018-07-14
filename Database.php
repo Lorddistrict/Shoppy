@@ -5,35 +5,33 @@
  * and open the template in the editor.
  */
 /**
- * Description of PersistanceSQL
- *
- * @author usersio
+ * @author Who knows :)
  */
+
+require 'init.php';
+
+
 class Database {
-    
-    //Méthodes de travail
-    private static function connexion(){
-        try{
-            $bdd = new PDO('mysql:host='._BDDHOST_.';dbname='._BDDNAME_.';charset=utf8', _BDDUSER_, _BDDPASS_);
-            return $bdd;
-        }catch (Exception $e){
-            die('Erreur : ' . $e->getMessage());
-        }
+  private static function connexion(){
+    try{
+      $bdd = new PDO(getenv('DB_TYPE').':host='.getenv('DB_HOST').';dbname='.getenv('DB_NAME').';charset=utf8', getenv('DB_USERNAME'), getenv('DB_PASS'));
+      return $bdd;
+    }catch (Exception $e){
+      die('Erreur : ' . $e->getMessage());
     }
-    
-    
-    public static function query($requete){
-        $bdd=Database::connexion();
-        $reponse = $bdd->query($requete);
-        $donnees = $reponse->fetchAll(PDO::FETCH_NUM);
-        $reponse->closeCursor();
-        return $donnees;
-    }
-    
-    public static function exec($requete){
-        $bdd=Database::connexion();
-        $bdd->exec($requete);
-        return $bdd->lastInsertId();
-    }
-    
+  }
+
+  public static function query($requete){
+    $bdd=Database::connexion();
+    $reponse = $bdd->query($requete);
+    $donnees = $reponse->fetchAll(PDO::FETCH_NUM);
+    $reponse->closeCursor();
+    return $donnees;
+  }
+
+  public static function exec($requete){
+    $bdd=Database::connexion();
+    $bdd->exec($requete);
+    return $bdd->lastInsertId();
+  }  
 }
