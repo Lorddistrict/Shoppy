@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 14, 2018 at 07:13 PM
+-- Generation Time: Jul 19, 2018 at 01:25 AM
 -- Server version: 10.1.29-MariaDB-6
 -- PHP Version: 7.2.7-0ubuntu0.18.04.2
 
@@ -29,21 +29,22 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `product` (
-  `idProduct` int(11) NOT NULL,
-  `nameProduct` varchar(255) NOT NULL,
-  `priceProduct` double NOT NULL,
-  `descProduct` text NOT NULL,
-  `pictureProduct` varchar(255) NOT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `price` double NOT NULL,
+  `description` text NOT NULL,
+  `picture` varchar(255) NOT NULL,
+  `isEdited` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`idProduct`, `nameProduct`, `priceProduct`, `descProduct`, `pictureProduct`) VALUES
-(1, 'Niche à oiseaux', 2.45, 'Cette nichette est si belle', 'oiseau.jpg'),
-(2, 'Arbre à chat', 150, 'Une arbre à chat pour que votre petit compagnon s\'amuse !', 'chat.jpg'),
-(3, 'Niche Wouf', 349.99, 'Une niche des plus luxueuse pour votre toutou !', 'chien.jpg');
+INSERT INTO `product` (`id`, `name`, `price`, `description`, `picture`, `isEdited`) VALUES
+(1, 'Niche à oiseaux', 12.41, 'Cette nichette est si belle', 'oiseau.jpg', 0),
+(2, 'Arbre à chat', 150.28, 'Une arbre à chat pour que votre petit compagnon s\'amuse !\r\nTrooooooooooooooooooooooop bien !', 'chat.jpg', 0),
+(3, 'Niche Wouf', 349.99, 'Une niche des plus luxueuse pour votre toutou !', 'chien.jpg', 0);
 
 --
 -- Indexes for dumped tables
@@ -53,7 +54,7 @@ INSERT INTO `product` (`idProduct`, `nameProduct`, `priceProduct`, `descProduct`
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`idProduct`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -63,7 +64,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `idProduct` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,7 +1,7 @@
 <?php
 require(__DIR__.'/../class/Product.php');
 
-if(isset($_GET['product'])){
+if(isset($_GET['product']) && is_numeric($_GET['product'])){
 	$product = Product::find($_GET['product']);
 	if($product->isEdited() == false){
 		$product->setIsEdited(true);
