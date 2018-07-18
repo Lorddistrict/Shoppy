@@ -5,10 +5,10 @@ $product = Product::find($_POST['id']);
 if($product != null){
 	if(isset($_POST['description']) && isset($_POST['price']))
 	{
-		$desc = htmlspecialchars($_POST['description']);
+		$description = htmlspecialchars($_POST['description']);
 		$price = htmlspecialchars($_POST['price']);
 
-		$product->setDescription($desc);
+		$product->setDescription($description);
 		$product->setPrice($price);
 		$product->setIsEdited(false);
 		$product->save();

@@ -16,3 +16,5 @@ Il aurait pu être intéressant de ne pas passer par la base de données mais je
 trouvé de solution efficace autrement.
 
 J'espère ne rien avoir oublié de vos recommandations, dans le cas contraire je m'en excuse.
+
+Enfin, il est vrai qu'il y a un soucis qui fait que si l'utilisateur ferme la page en cours d'édition, celle-ci ne changera pas la valeur de isEdited par false et restera bloquée. Je n'ai réalisé qu'une ébauche de la situation mais n'est pas fonctionnelle.
