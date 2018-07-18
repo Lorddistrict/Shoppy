@@ -17,7 +17,7 @@ require(__DIR__.'/header.php');
 	<div class="container">
 		<div class="row hidden-alert" id="alert-success">
 			<div class="alert alert-success" role="alert">
-			  L'édition s'est effectée correctement.
+			  L'édition s'est effectée correctement. Vous allez être redirigé(e)
 			</div>	
 		</div>
 		<div class="row hidden-alert" id="alert-danger">
@@ -80,8 +80,9 @@ require(__DIR__.'/header.php');
 	  			$.post('editionSubmit.php', dataflow, function (data){
 	  				$('#alert-success').show();
 		  			$('#editButton').text("Valider").prop('disabled', false);
-		  			sleep(3000);
-		  			window.location.replace("../index.php");
+		  			setTimeout(function() {
+		  				window.location.replace("../index.php");
+						}, 3000);
 	  			});
 	  		});
   		}
