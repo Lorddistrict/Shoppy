@@ -5,7 +5,7 @@ html, body{
 }
 body{
 	width: 100%;
-	background-image: url("/Shoppy/assets/img/background.jpg");
+	background-image: url("../img/background.jpg");
 }
 .container{
 	background-color: white;
